@@ -1,0 +1,116 @@
+{
+  "version": 5,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "general-configuration",
+      "description": "General settings that apply to all configurations",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/${presetName}",
+      "installDir": "${sourceDir}/out/${presetName}/install",
+      "cacheVariables": {
+        "ENABLE_CLANG_TIDY": false,
+        "ENABLE_TESTING": false
+      }
+    },
+    {
+      "name": "compiler-gcc",
+      "description": "GCC settings",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
+      "name": "compiler-mvc",
+      "description": "Microsoft Visual C++ Compiler settings",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "compiler-clang-mvc",
+      "description": "MSVC settings",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang-cl",
+        "CMAKE_CXX_COMPILER": "clang-cl"
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "intelliSenseMode": "windows-clang-x64"
+        }
+      }
+    },
+    {
+      "name": "build-configuration-debug",
+      "description": "Set build configuration to debug",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "build-configuration-release",
+      "description": "Set build configuration to release",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "platform-windows",
+      "description": "Windows settings for MSBuild toolchain that apply to mvc and clang",
+      "inherits": "general-configuration",
+      "hidden": true,
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "${sourceDir}/../vcpkg/scripts/buildsystems/vcpkg.cmake"
+        }
+      }
+    },
+    {
+      "name": "platfrom-unix-like",
+      "description": "Unix-like OS settings for gcc and clang toolchains",
+      "hidden": true,
+      "inherits": "general-configuration",
+      "condition": {
+        "type": "inList",
+        "string": "${hostSystemName}",
+        "list": [
+          "Linux",
+          "Darwin"
+        ]
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
+          "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}"
+        }
+      },
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "$env{HOME}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+        }
+      }
+    }
+  ]
+}

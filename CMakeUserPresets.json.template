@@ -1,0 +1,66 @@
+{
+  "version": 5,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-mvc-debug",
+      "description": "Target Windows with the mvc compiler, debug build type and user configuration",
+      "inherits": [ "platform-windows", "compiler-mvc", "build-configuration-debug" ],
+      "displayName": "MVC Debug",
+      "cacheVariables": {
+        "ENABLE_TESTING": true
+      }
+    },
+    {
+      "name": "windows-mvc-release",
+      "description": "Target Windows with the mvc compiler, release build type and user configuration",
+      "inherits": [ "platform-windows", "compiler-mvc", "build-configuration-release" ],
+      "displayName": "MVC Release",
+      "cacheVariables": {
+        "ENABLE_TESTING": true
+      }
+    },
+    {
+      "name": "windows-clang-debug",
+      "description": "Target Windows with the clang compiler, debug build type and user configuration",
+      "inherits": [ "platform-windows", "compiler-clang-mvc", "build-configuration-debug" ],
+      "displayName": "Clang MVC Debug",
+      "cacheVariables": {
+        "ENABLE_CLANG_TIDY": true,
+        "ENABLE_TESTING": true
+      }
+    },
+    {
+      "name": "windows-clang-release",
+      "description": "Target Windows with the clang compiler, release build type and user configuration",
+      "inherits": [ "platform-windows", "compiler-clang-mvc", "build-configuration-release" ],
+      "displayName": "Clang MVC Release",
+      "cacheVariables": {
+        "ENABLE_CLANG_TIDY": false,
+        "ENABLE_TESTING": true
+      }
+    },
+    {
+      "name": "linux-gcc-debug",
+      "displayName": "GCC Debug",
+      "description": "Target Unix-like OS with the gcc compiler, debug build type",
+      "inherits": [ "platfrom-unix-like", "compiler-gcc", "build-configuration-debug" ],
+      "cacheVariables": {
+        "ENABLE_TESTING": true
+      }
+    },
+    {
+      "name": "linux-gcc-release",
+      "displayName": "GCC Release",
+      "description": "Target Unix-like OS with the gcc compiler, release build type",
+      "inherits": [ "platfrom-unix-like", "compiler-gcc", "build-configuration-release" ],
+      "cacheVariables": {
+        "ENABLE_TESTING": true
+      }
+    }
+  ]
+}
