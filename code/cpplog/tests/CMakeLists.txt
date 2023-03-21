@@ -11,7 +11,8 @@ add_executable(${PROJECT_NAME})
 
 cpp_flags(${PROJECT_NAME})
 
-target_sources(${PROJECT_NAME} PRIVATE	"")
+target_sources(${PROJECT_NAME} PRIVATE	"src/cpp_log_tests.cpp"
+										"src/fixtures.cpp")
 target_include_directories(${PROJECT_NAME} PRIVATE "src" ${CPPLOG_PUBLIC_DIRECTORY} ${TMP_OUTPUT_DIRECTORY})
 target_link_libraries(${PROJECT_NAME} PRIVATE GTest::gtest GTest::gtest_main ${PARENT_PROJECT})
 if(UNIX) # needed by google test

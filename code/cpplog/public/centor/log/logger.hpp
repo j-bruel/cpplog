@@ -1,14 +1,15 @@
 #pragma once
 
+#include "conf.hpp"
 #include "cpplog_export.hpp"
 #include "level.hpp"
+#include "warning_disabler.hpp"
 
 #include <memory>
 #include <string_view>
 
 namespace centor::log
 {
-  struct conf;
 
   class CPPLOG_EXPORT logger final
   {
@@ -26,8 +27,13 @@ namespace centor::log
     void critical(std::string_view msg) const noexcept;
 
   private:
+    DISABLE_WARNING_PUSH
+    DISABLE_WARNING_EXPORTED_DATA_MISMATCH
+
     struct log_impl;
     std::unique_ptr<log_impl> impl;
+
+    DISABLE_WARNING_POP
   };
 
 }

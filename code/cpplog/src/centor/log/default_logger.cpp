@@ -1,7 +1,7 @@
 #include "centor/log/default_logger.hpp"
 
 #include "centor/log/level.hpp"
-#include "conf.hpp"
+#include "centor/log/conf.hpp"
 
 #include <chrono>
 #include <memory>
@@ -24,7 +24,7 @@ namespace centor::log
                                        .file_configuration = log_file_configuration,
                                        .enable_console = true};
 
-  logger &defaultLogger()
+  logger &default_logger()
   {
     static logger instance(log_configuration);
 
