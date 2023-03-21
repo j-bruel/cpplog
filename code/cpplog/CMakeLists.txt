@@ -9,6 +9,7 @@ set(CPPLOG_CPP_SOURCES	"src/centor/log/default_logger.cpp"
 						"src/centor/log/current_process_folder.cpp")
 set(CPPLOG_INCLUDE_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(CPPLOG_PUBLIC_DIRECTORY "${PROJECT_SOURCE_DIR}/public")
+set(PROJECT_VERSION "1.0.0") # @todo: Use VERSION.txt file insteed.
 
 add_library(${PROJECT_NAME} SHARED)
 
@@ -38,6 +39,14 @@ install(FILES ${TMP_OUTPUT_DIRECTORY}/${PROJECT_NAME}_export.hpp TYPE INCLUDE)
 if(WIN32)
 	installdeps(${PROJECT_NAME} ${CMAKE_INSTALL_PREFIX}/bin ${CMAKE_INSTALL_PREFIX}/bin)
 endif()
+
+#
+# Needed only to generate install package
+#
+include(vcpkg-builder)
+centor_configure_package_config_file()
+centor_write_basic_package_version_file()
+centor_install_package_files()
 
 if (ENABLE_TESTING)
 	add_subdirectory("tests")
