@@ -2,8 +2,10 @@ project(cpplog)
 
 find_package(fmt REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
+find_package(magic_enum CONFIG REQUIRED)
 
-set(CPPLOG_CPP_SOURCES	"src/centor/default_logger.cpp")
+set(CPPLOG_CPP_SOURCES	"src/centor/log/default_logger.cpp"
+						"src/centor/log/logger.cpp")
 set(CPPLOG_INCLUDE_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(CPPLOG_PUBLIC_DIRECTORY "${PROJECT_SOURCE_DIR}/public")
 
@@ -22,7 +24,7 @@ target_include_directories(${PROJECT_NAME}	PRIVATE
 											INTERFACE
 												$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 target_compile_definitions(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_EXPORTS)
-target_link_libraries(${PROJECT_NAME}	PRIVATE fmt::fmt spdlog::spdlog)
+target_link_libraries(${PROJECT_NAME}	PRIVATE fmt::fmt spdlog::spdlog magic_enum::magic_enum)
 
 include(GenerateExportHeader)
 generate_export_header(${PROJECT_NAME} EXPORT_FILE_NAME ${TMP_OUTPUT_DIRECTORY}/${PROJECT_NAME}_export.hpp)
