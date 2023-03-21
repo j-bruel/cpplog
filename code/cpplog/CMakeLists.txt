@@ -5,7 +5,8 @@ find_package(spdlog CONFIG REQUIRED)
 find_package(magic_enum CONFIG REQUIRED)
 
 set(CPPLOG_CPP_SOURCES	"src/centor/log/default_logger.cpp"
-						"src/centor/log/logger.cpp")
+						"src/centor/log/logger.cpp"
+						"src/centor/log/current_process_folder.cpp")
 set(CPPLOG_INCLUDE_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(CPPLOG_PUBLIC_DIRECTORY "${PROJECT_SOURCE_DIR}/public")
 

@@ -1,6 +1,7 @@
 #include "centor/log/logger.hpp"
 
 #include "centor/log/conf.hpp"
+#include "centor/log/current_process_folder.hpp"
 
 #include <filesystem>
 #include <magic_enum.hpp>
@@ -27,7 +28,7 @@ namespace centor::log
     if (configuration.file_configuration && !configuration.file_configuration->file_name.empty())
     {
       const auto &file_configuration = configuration.file_configuration;
-      const auto file_path = std::filesystem::current_path() / "/log/" / file_configuration->file_name;
+      const auto file_path = current_process_folder() / "log" / file_configuration->file_name;
 
       if (file_configuration->file_rotation)
         sinks.push_back(std::make_shared<spdlog::sinks::rotating_file_sink_mt>(
