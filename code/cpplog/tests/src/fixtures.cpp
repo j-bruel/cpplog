@@ -1,12 +1,12 @@
 #include "fixtures.hpp"
-#include "centor/log/current_process_folder.hpp"
+#include "log/current_process_folder.hpp"
 
-namespace centor::log
+namespace cpplog::test
 {
 
-  centor_log::centor_log()
+  cpplog::cpplog()
   {
-    log_file = current_process_folder() / "log" / "centor.log";
+    log_file = ::cpplog::log::current_process_folder() / "log" / "cpplog.log";
   }
 
 }

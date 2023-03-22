@@ -1,7 +1,7 @@
-#include "centor/log/logger.hpp"
+#include "log/logger.hpp"
 
-#include "centor/log/conf.hpp"
-#include "centor/log/current_process_folder.hpp"
+#include "log/conf.hpp"
+#include "log/current_process_folder.hpp"
 
 #include <filesystem>
 #include <magic_enum.hpp>
@@ -11,7 +11,7 @@
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/spdlog.h>
 
-namespace centor::log
+namespace cpplog::log
 {
   struct logger::log_impl final
   {

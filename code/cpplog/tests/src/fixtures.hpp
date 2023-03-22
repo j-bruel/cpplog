@@ -3,15 +3,15 @@
 #include "gtest/gtest.h"
 #include <filesystem>
 
-namespace centor::log
+namespace cpplog::test
 {
 
-  class centor_log : public ::testing::Test
+  class cpplog : public ::testing::Test
   {
   protected:
     std::filesystem::path log_file;
 
-    centor_log();
+    cpplog();
   };
 
 }

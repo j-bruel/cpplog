@@ -1,12 +1,12 @@
-#include "centor/log/default_logger.hpp"
+#include "log/default_logger.hpp"
 
-#include "centor/log/level.hpp"
-#include "centor/log/conf.hpp"
+#include "log/level.hpp"
+#include "log/conf.hpp"
 
 #include <chrono>
 #include <memory>
 
-namespace centor::log
+namespace cpplog::log
 {
   using namespace std::chrono_literals;// Can declare easily time, ref 5s
 
@@ -14,7 +14,7 @@ namespace centor::log
   constexpr auto max_log_file = 200000;// Maximum number of files allowed by spdlog.
   constexpr auto five_seconds = 5s;
 
-  static inline conf::file log_file_configuration{.file_name = "centor.log",
+  static inline conf::file log_file_configuration{.file_name = "cpplog.log",
                                                   .file_rotation = conf::rotation(max_log_file, max_log_size),
                                                   .backtrace_size = std::nullopt,
                                                   .flush_period = five_seconds};

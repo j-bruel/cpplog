@@ -8,7 +8,7 @@
 #include <memory>
 #include <string_view>
 
-namespace centor::log
+namespace cpplog::log
 {
 
   class CPPLOG_EXPORT logger final

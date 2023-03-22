@@ -4,7 +4,7 @@
 
 #include "logger.hpp"
 
-namespace centor::log
+namespace cpplog::log
 {
 
 	CPPLOG_EXPORT logger &default_logger();

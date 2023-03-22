@@ -1,9 +1,9 @@
-#include "centor/log/current_process_folder.hpp"
+#include "log/current_process_folder.hpp"
 #if defined(WIN32)
   #include "Windows.h"
 #endif
 
-namespace centor::log
+namespace cpplog::log
 {
 
   std::filesystem::path current_process_folder()

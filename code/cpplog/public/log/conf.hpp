@@ -1,12 +1,12 @@
 #pragma once
 
-#include "centor/log/level.hpp"
+#include "level.hpp"
 
 #include <chrono>
 #include <filesystem>
 #include <optional>
 
-namespace centor::log
+namespace cpplog::log
 {
   struct conf final
   {

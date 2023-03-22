@@ -1,6 +1,6 @@
 #pragma once
 
-namespace centor::log
+namespace cpplog::log
 {
 
 	enum class level

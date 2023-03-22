@@ -4,7 +4,7 @@
 
 #include <filesystem>
 
-namespace centor::log
+namespace cpplog::log
 {
 
   CPPLOG_EXPORT [[nodiscard]] std::filesystem::path current_process_folder();
