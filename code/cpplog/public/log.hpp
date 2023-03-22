@@ -14,9 +14,7 @@ namespace cpplog
   template<typename... log_msg_args>
   [[nodiscard]] static auto format(std::string_view formatted_msg, const log_msg_args &...args) noexcept
   {
-    if constexpr (sizeof...(args) != 0)
-      return fmt::vformat(formatted_msg, fmt::make_format_args(args...));
-    return formatted_msg;
+    return fmt::vformat(formatted_msg, fmt::make_format_args(args...));
   }
 
   template<typename... log_msg_args>
