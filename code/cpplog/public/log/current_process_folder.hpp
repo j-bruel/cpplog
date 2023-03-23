@@ -7,5 +7,5 @@
 namespace cpplog::log
 {
 
-  CPPLOG_EXPORT [[nodiscard]] std::filesystem::path current_process_folder();
+  CPPLOG_EXPORT std::filesystem::path current_process_folder();
 }
